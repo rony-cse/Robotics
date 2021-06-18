@@ -185,10 +185,137 @@ void loop()                     // run over and over again
           Serial.printf("Set int... %s\n", Firebase.RTDB.setString(&fbdo, "/daily/3", s1) ? "ok" : fbdo.errorReason().c_str());
           break;
         case 4:
-          Serial.printf("Set int... %s\n", Firebase.RTDB.setString(&fbdo, "/test/4", String(enrolledID)) ? "ok" : fbdo.errorReason().c_str());
+          s2= Firebase.RTDB.getString(&fbdo, "/daily/4") ? String(fbdo.stringData()).c_str() : fbdo.errorReason().c_str();
+          Serial.println(s2);
+          temp=s2[0] - '0';
+          if(temp==0){
+            
+            lcd.clear();
+            lcd.setCursor(0,1);
+            lcd.print("Meal Empty!");
+            buz(900);
+            break;
+          }
+          else {
+            temp--;
+            lcd.clear();
+            lcd.setCursor(0,1);
+            lcd.print("Go get your Meal!");
+            buz(250);
+            delay(100);
+            buz(250);
+            delay(100);
+          }
+          s1= temp;s1=s1 + s2[1] + s2[2];
+          Serial.println(s1);
+          Serial.printf("Set int... %s\n", Firebase.RTDB.setString(&fbdo, "/daily/4", s1) ? "ok" : fbdo.errorReason().c_str());
+          break;
+        case 5:
+          s2= Firebase.RTDB.getString(&fbdo, "/daily/5") ? String(fbdo.stringData()).c_str() : fbdo.errorReason().c_str();
+          Serial.println(s2);
+          temp=s2[0] - '0';
+          if(temp==0){
+            
+            lcd.clear();
+            lcd.setCursor(0,1);
+            lcd.print("Meal Empty!");
+            buz(900);
+            break;
+          }
+          else {
+            temp--;
+            lcd.clear();
+            lcd.setCursor(0,1);
+            lcd.print("Go get your Meal!");
+            buz(250);
+            delay(100);
+            buz(250);
+            delay(100);
+          }
+          s1= temp;s1=s1 + s2[1] + s2[2];
+          Serial.println(s1);
+          Serial.printf("Set int... %s\n", Firebase.RTDB.setString(&fbdo, "/daily/5", s1) ? "ok" : fbdo.errorReason().c_str());
+          break;
+        case 6:
+          s2= Firebase.RTDB.getString(&fbdo, "/daily/6") ? String(fbdo.stringData()).c_str() : fbdo.errorReason().c_str();
+          Serial.println(s2);
+          temp=s2[0] - '0';
+          if(temp==0){
+            
+            lcd.clear();
+            lcd.setCursor(0,1);
+            lcd.print("Meal Empty!");
+            buz(900);
+            break;
+          }
+          else {
+            temp--;
+            lcd.clear();
+            lcd.setCursor(0,1);
+            lcd.print("Go get your Meal!");
+            buz(250);
+            delay(100);
+            buz(250);
+            delay(100);
+          }
+          s1= temp;s1=s1 + s2[1] + s2[2];
+          Serial.println(s1);
+          Serial.printf("Set int... %s\n", Firebase.RTDB.setString(&fbdo, "/daily/6", s1) ? "ok" : fbdo.errorReason().c_str());
+          break;
+        case 7:
+                s2= Firebase.RTDB.getString(&fbdo, "/daily/7") ? String(fbdo.stringData()).c_str() : fbdo.errorReason().c_str();
+          Serial.println(s2);
+          temp=s2[0] - '0';
+          if(temp==0){
+            
+            lcd.clear();
+            lcd.setCursor(0,1);
+            lcd.print("Meal Empty!");
+            buz(900);
+            break;
+          }
+          else {
+            temp--;
+            lcd.clear();
+            lcd.setCursor(0,1);
+            lcd.print("Go get your Meal!");
+            buz(250);
+            delay(100);
+            buz(250);
+            delay(100);
+          }
+          s1= temp;s1=s1 + s2[1] + s2[2];
+          Serial.println(s1);
+          Serial.printf("Set int... %s\n", Firebase.RTDB.setString(&fbdo, "/daily/7", s1) ? "ok" : fbdo.errorReason().c_str());
+          break;
+        case 8:
+              s2= Firebase.RTDB.getString(&fbdo, "/daily/8") ? String(fbdo.stringData()).c_str() : fbdo.errorReason().c_str();
+          Serial.println(s2);
+          temp=s2[0] - '0';
+          if(temp==0){
+            
+            lcd.clear();
+            lcd.setCursor(0,1);
+            lcd.print("Meal Empty!");
+            buz(900);
+            break;
+          }
+          else {
+            temp--;
+            lcd.clear();
+            lcd.setCursor(0,1);
+            lcd.print("Go get your Meal!");
+            buz(250);
+            delay(100);
+            buz(250);
+            delay(100);
+          }
+          s1= temp;s1=s1 + s2[1] + s2[2];
+          Serial.println(s1);
+          Serial.printf("Set int... %s\n", Firebase.RTDB.setString(&fbdo, "/daily/8", s1) ? "ok" : fbdo.errorReason().c_str());
           break;
         default:
-          Serial.printf("Set int... %s\n", Firebase.RTDB.setString(&fbdo, "/test/default", String(enrolledID)) ? "ok" : fbdo.errorReason().c_str());
+          Serial.printf("Set int... %s\n", Firebase.RTDB.setString(&fbdo, "/outOfRange/", String(enrolledID)) ? "ok" : fbdo.errorReason().c_str());
         
       }
     }
